@@ -1,0 +1,225 @@
+:root {
+    --bgClrLight: #f5f5f5;
+    --bgCntClr: #fff;
+    --headerClr: #333;
+    --footerClr: #aaa;
+    --inputBrdClr: #ccc;
+
+    --btnTxtClr: #fff;
+    --greenBtnBgClr: #4CAF50;
+    --greenBtnBgClrHover: #45a049;
+
+    --redBtnBgClr: #c62828;
+    --redBtnBgClrHover: #a00000;
+
+    --fileTblLinkClr: #1a0dab;
+    --fileTblOddBgClr: #f9f9f9;
+    --fileTblEvenBgClr: #ffffff;
+
+    --toastBgClr: rgba(60, 60, 60, 0.9);
+    --lightToastClr: #fff;
+    --darkToastClr: #000;
+    --greenToastBgClr: var(--greenBtnBgClr);
+    --redToastBgClr: var(--redBtnBgClr);
+    --blueToastBgClr: #117a8b;
+    --yellowToastBgClr: #d39e00;
+
+
+    --navBgClr: #333;
+    --navItemBgHover: #4CAF50;
+    --navItemClr: #f2f2f2;
+    --navItemClrHover: #fff;
+
+    --containerWidth: 600px;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bgClrLight);
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: var(--containerWidth);
+  margin: 40px auto;
+  background: var(--bgCntClr);
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+.footer {
+  max-width: var(--containerWidth);
+  margin-inline: auto;
+  text-align: center;
+  color: var(--footerClr);
+}
+
+/* form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input[type="file"],
+input[type="password"],
+select {
+  padding: 8px;
+  border: 1px solid var(--inputBrdClr);
+  border-radius: 4px;
+}
+
+
+/* File table */
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.file-table th, .file-table td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--inputBrdClr);
+}
+.file-table tr:nth-child(odd) {
+  background-color: var(--fileTblOddBgClr);
+}
+.file-table tr:nth-child(even) {
+  background-color: var(--fileTblEvenBgClr);
+}
+.file-table a {
+  color: var(--fileTblLinkClr);
+  text-decoration: none;
+}
+.file-table a:hover {
+  text-decoration: underline;
+}
+
+
+/* Toast notification */
+#toast-container {
+  position: fixed;
+  top: 4em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.toast {
+  padding: 12px 20px;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  color: var(--lightToastClr);
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.toast.fade-out {
+  opacity: 0;
+}
+/* Type-specific styles */
+.toast-success {
+  background-color: var(--greenToastBgClr);
+}
+.toast-error {
+  background-color: var(--redToastBgClr);
+}
+.toast-info {
+  background-color: var(--blueToastBgClr);
+}
+.toast-warning {
+  background-color: var(--yellowToastBgClr);
+}
+
+/* Buttons */
+.btn {
+  color: var(--btnTxtClr);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.btn-green {
+  background: var(--greenBtnBgClr);
+}
+.btn-green:hover {
+  background: var(--greenBtnBgClrHover);
+}
+.btn-red {
+  background: var(--redBtnBgClr);
+}
+.btn-red:hover {
+  background: var(--redBtnBgClrHover);
+}
+.copy-btn, .delete-btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+}
+.copy-btn:hover, .delete-btn:hover {
+  filter: brightness(1.3);
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+.copy-btn:disabled, .delete-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* NavBar */
+.navbar {
+  background-color: var(--navBgClr);
+  overflow: hidden;
+  border-bottom: 3px solid var(--navItemBgHover);
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: var(--navItemClr);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.navbar a:hover {
+  background-color: var(--navItemBgHover);
+  color: var(--navItemClrHover);
+}
+
+
+/* Alignment */
+.file-table td.align-right, .align-right {
+  text-align: right;
+}
+
+
+/* Inline (noscript) notifications */
+.inline-flash {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-weight: bold;
+  color: var(--lightToastClr);
+}
+.inline-flash.success {
+  background-color: var(--greenToastBgClr);
+}
+.inline-flash.error {
+  background-color: var(--redToastBgClr);
+}
+.inline-flash.warning {
+  background-color: var(--yellowToastBgClr);
+}
+.inline-flash.info {
+  background-color: var(--blueToastBgClr);
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <title>EzFileServe - {% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body>
+  <div class="navbar">
+    <a href="{{ url_for('routes.index') }}">🏠 Home</a>
+    {% if config.ENABLE_ADMIN %}
+    <a href="{{ url_for('routes.admin') }}">🔧 Admin</a>
+    {% endif %}
+  </div>
+
+  <div class="container">
+      <noscript>
+    <div class="inline-flash warning" role="alert">Javascript is disabled. Limited functionality available!</div>
+  </noscript>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <noscript>
+      <div class="no-js-messages">
+        {% for category, message in messages %}
+          <div class="inline-flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    </noscript>
+        {% for category, message in messages %}
+         <div class="toast-trigger" data-message="{{ message|e }}" data-type="{{ category }}"></div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}    
+    {% block content %}{% endblock %}
+  </div>
+
+  <div class="footer">
+    Copyright &copy; {{ display_year }} Teknikuglen
+  </div>
+  <div id="toast-container"></div>
+</body>
+</html>

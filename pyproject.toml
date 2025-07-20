@@ -1,0 +1,26 @@
+[project]
+name = "EzFileServe"
+version = "0.1.0"
+description = "A simple Flask app to upload, list, and manage files with admin support."
+authors = [
+    { name = "Rene Rasmussen", email = "rasre72@gmail.com" }
+]
+requires-python = ">=3.8"
+
+dependencies = [
+    "Flask>=2.2",
+    "gunicorn>=21.2.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools]
+packages = ["ezfileserve"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
