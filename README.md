@@ -1,5 +1,8 @@
 # EzFileServe
 
+> [!Warning]
+> Moved to codeberg [https://codeberg.org/TeknikUglen/EzFileServe](https://codeberg.org/TeknikUglen/EzFileServe)
+
 Simple web file upload and server for local file retrieval, made to e.g. serve
 kickstart files for (semi) automatic OS installations of RedHat based distros.
 
